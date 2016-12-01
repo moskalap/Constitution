@@ -25,13 +25,13 @@ public interface Document {
      * @param startIndex
      *      index of starting chapter
      * @param endIndex
-            index of ending chapter
+     *       index of ending chapter
      *
      * @return Array of Chapters
      *
      */
     public Chapter[] getChapter(int startIndex, int endIndex)
 
-        
+
 
 }
