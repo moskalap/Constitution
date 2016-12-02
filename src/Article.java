@@ -12,6 +12,9 @@ public class Article {
         this.articleNo=no;
     }
 
+    public void addParagraph(Paragraph paragraph){
+        paragraphs.add(paragraph);
+    }
 
     public String toString(){
         String res="Art. "+articleNo.toString()+". \n";
@@ -19,7 +22,7 @@ public class Article {
         for (Paragraph paragraph:paragraphs){
             res+=paragraph.toString();
         }
-    return res+"\n";
+    return res;
     }
 
 

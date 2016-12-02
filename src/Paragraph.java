@@ -18,7 +18,7 @@ public class Paragraph {
     public String toString(){
 
         if (this.paragraphNo==0)
-            return this.paragraph;
+            return this.paragraph+"\n";
             return paragraphNo+". "+paragraph+"\n";
     }
 
