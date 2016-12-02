@@ -30,7 +30,19 @@ public interface Document {
      * @return Array of Chapters
      *
      */
-    public Chapter[] getChapter(int startIndex, int endIndex)
+    public Chapter[] getChapters(int startIndex, int endIndex);
+
+    /**
+     * returns a chapters
+     * @param startIndex
+     *      index of starting article
+     * @param endIndex
+     *       index of ending article
+     *
+     * @return Array of Articles
+     *
+     */
+    public Article[] getArticles(int startIndex, int endIndex);
 
 
 
