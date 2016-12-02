@@ -2,16 +2,24 @@
  * Created by przemek on 01.12.16.
  */
 public class Paragraph {
-    private int paragraphNo;
-    private String paragraph;
+    private final int paragraphNo;
+    private final String paragraph;
 
     Paragraph(int n, String paragraph){
         this.paragraph=paragraph;
         this.paragraphNo=n;
 
     }
+
+    Paragraph(String paragraph){
+        this.paragraph=paragraph;
+        this.paragraphNo=0;
+    }
     public String toString(){
-        return paragraphNo+". "+paragraph+"\n";
+
+        if (this.paragraphNo==0)
+            return this.paragraph;
+            return paragraphNo+". "+paragraph+"\n";
     }
 
 }
