@@ -1,5 +1,6 @@
 /**
- * Created by przemek on 03.12.16.
+ * Downloaded from
+ * http://stackoverflow.com/questions/9073150/converting-roman-numerals-to-decimal
  */
 public class RomanToDecimal {
     public static int romanToDecimal(java.lang.String romanNumber) {
