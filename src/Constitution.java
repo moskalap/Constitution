@@ -9,7 +9,9 @@ public class Constitution implements Document {
     private String title;
     private List<Chapter> chapters=new ArrayList<>();
     private HashMap<Integer, Article> articles=new HashMap<>();
-
+Constitution(String title){
+    this.title=title;
+}
 
     public String getTitle(){
         return this.title;
@@ -38,6 +40,15 @@ public class Constitution implements Document {
         for (int i =0; i<endIndex-startIndex; i++){
             res[i]=articles.get(startIndex+i);
         }
+        return res;
+    }
+    public void addChapter(Chapter chapter){
+        chapters.add(chapter);
+    }
+    public String toString(){
+        String res="";
+        for(Chapter chapter:chapters)
+            res+=chapter.toString();
         return res;
     }
 }

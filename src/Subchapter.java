@@ -1,26 +1,43 @@
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * Created by przemek on 01.12.16.
  */
 public class Subchapter {
-    private int subchapterNO;
-    private final String subchapterTitle;
+
+    private String subchapterTitle;
+    private List<Article> articles = new LinkedList<>();
+
+    public void addArticle(Article article){
+        this.articles.add(article);
+    }
 
 
-
-    Subchapter(int no, String title){
-        this.subchapterNO=no;
+    Subchapter(String title){
         this.subchapterTitle=title;
     }
+    Subchapter(){
+        this.subchapterTitle="";
+    }
 
-    public String getSubchapterTitle(){
-        return subchapterTitle;
-    }
-    public int getSubchapterNO(){
-        return subchapterNO;
-    }
 
     public String toString(){
-        for
+        String res=subchapterTitle+"\n";
+        for (Article article:articles){
+            res+=article.toString();
+        }
+        return res;
+    }
+    public String getSuchapterTitle(){
+        return "Podrozdział"+this.subchapterTitle;
     }
 
+    public boolean isEmpty() {
+        return articles.isEmpty();
+    }
+
+    public void expandName(String line) {
+        this.subchapterTitle+="\n"+line;
+    }
 }

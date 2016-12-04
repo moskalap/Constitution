@@ -12,18 +12,27 @@ public class Article {
         this.articleNo=no;
     }
 
-    public void addParagraph(Paragraph paragraph){
-        paragraphs.add(paragraph);
+    public void addParagraphs(List<Paragraph> paragraphs){
+        for(Paragraph paragraph:paragraphs) {
+            this.paragraphs.add(paragraph);
+        }
     }
 
     public String toString(){
-        String res="Art. "+articleNo.toString()+". \n";
-
+        String res="Art. "+articleNo+". \n";
         for (Paragraph paragraph:paragraphs){
             res+=paragraph.toString();
         }
+
     return res;
     }
 
 
+    public int getArticleNo() {
+        return articleNo;
+    }
+
+    public void addParagraph(Paragraph paragraph) {
+        paragraphs.add(paragraph);
+    }
 }

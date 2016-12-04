@@ -29,11 +29,19 @@ public class Chapter {
         return this.chapterName;
     }
     public void addSubchapter(Subchapter subchapter){
+
         subChapters.add(subchapter);
     }
     public Subchapter getSubchapter(int index){
         return subChapters.get(index);
 
     }
+    public String toString(){
+        String res=this.getChapterName();
 
+        for (Subchapter subchapter:subChapters){
+            res+=subchapter.toString();
+        }
+        return res;
+    }
 }
