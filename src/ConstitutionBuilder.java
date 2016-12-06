@@ -6,6 +6,7 @@ import java.util.LinkedList;
 public class ConstitutionBuilder {
     private LinkedList<String> words;
     private LinkedList<Chapter> chapters=new LinkedList<>();
+    private LinkedList<Article> articles=new LinkedList<>();
     private Chapter actualChapter;
     private Subchapter actualSubchapter;
     private Article actualArticle;
@@ -16,9 +17,8 @@ public class ConstitutionBuilder {
 
    public Constitution build(){
        Constitution constitution=new Constitution(getTitle());
+       constitution.addPreambule(getPreambule());
        createObjects(constitution);
-       System.out.println(constitution.toString());
-       System.out.println(constitution.getTitle());
        return constitution;
 
    }
@@ -50,6 +50,7 @@ public class ConstitutionBuilder {
                     i++;
                     actualArticle=new Article(getArticleNo(words.get(i)));
                     actualSubchapter.addArticle(actualArticle);
+                    c.addArticle(actualArticle);
                     System.out.println("dodałem artykuł "+ actualArticle.getArticleNo()+ "do "+actualSubchapter.getSuchapterTitle());
                     actualParagraph=null;
                     break;
@@ -118,6 +119,16 @@ public class ConstitutionBuilder {
             if(words.get(i).equals("</TITLE>")) to=i;
         }
         return getString(from, to);
+    }
+    private String getPreambule(){
+        int from=0;
+        int to=0;
+        for(int i=0; i<words.size(); i++){
+            if(words.get(i).equals("<PREAMBULE>")) from=i;
+            if(words.get(i).equals("</PREAMBULE>")) to=i;
+        }
+        return getString(from, to);
+
     }
 
     private String getString(int from, int to) {

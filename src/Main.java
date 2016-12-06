@@ -10,12 +10,30 @@ import java.util.List;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-    ConstitutionParser cr=new ConstitutionParser("/home/przemek/Dokumenty/JavaWorkspace/oopp/Constitution/res/konstytucja.txt");
-    ConstitutionBuilder C=new ConstitutionBuilder(cr.parse());
-        C.build();
+        ArgumentsParser parser=new ArgumentsParser(args);
+
+        Constitution constitution=new ConstitutionBuilder(new ConstitutionParser(parser.filePath).parse()).build();
+        if(parser.wantArticle)
+        {
+            Article[] articles= constitution.getArticles(parser.articleStart, parser.articleEnd);
+            for(Article article:articles)
+                System.out.println(article.toString());
+        }
 
 
 
-      //  System.out.println(l.get(0));
+        if(parser.wantChapters){
+            Chapter[] chapters=constitution.getChapters(parser.chapterStart, parser.chapterEnd);
+            for( Chapter chapter: chapters){
+                System.out.println( chapter.toString());
+            }
+        }
+
+
+
+
+
+
+        //  System.out.println(l.get(0));
     }
 }

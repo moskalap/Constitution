@@ -7,8 +7,9 @@ import java.util.List;
  */
 public class Constitution implements Document {
     private String title;
+    private String preambule;
     private List<Chapter> chapters=new ArrayList<>();
-    private HashMap<Integer, Article> articles=new HashMap<>();
+    private ArrayList<Article> articles=new ArrayList<>();
 Constitution(String title){
     this.title=title;
 }
@@ -27,8 +28,8 @@ Constitution(String title){
         if (endIndex>chapters.size()) throw new ArrayIndexOutOfBoundsException("Document posiada "+chapters.size()+" rozdziałów");
         Chapter[] res=new Chapter[endIndex-startIndex];
 
-        for(int i =startIndex; i<endIndex; i++){
-            res[i]=chapters.get(i-1);
+        for(int i =0; i<endIndex-startIndex; i++){
+            res[i]=chapters.get(i+startIndex-1);
         }
         return res;
     }
@@ -50,5 +51,12 @@ Constitution(String title){
         for(Chapter chapter:chapters)
             res+=chapter.toString();
         return res;
+    }
+    public void addArticle(Article article){
+        articles.add(article);
+    }
+
+    public void addPreambule(String preambule) {
+        this.preambule=preambule;
     }
 }

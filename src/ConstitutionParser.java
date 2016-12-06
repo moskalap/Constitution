@@ -130,12 +130,14 @@ public class ConstitutionParser {
         }
         res1+=repair;
         words.set(i,res1);
-
-        for(int k=1; k<rightWord.length-1; k++){
-            res2+=rightWord[k]+" ";
-        }
-        words.set(i+1, res2+rightWord[rightWord.length-1]);
-
+if(rightWord.length>1) {
+    for (int k = 1; k < rightWord.length - 1; k++) {
+        res2 += rightWord[k] + " ";
+    }
+    words.set(i + 1, res2 + rightWord[rightWord.length - 1]);
+}
+else
+    words.remove(i+1);
 
 
     }
