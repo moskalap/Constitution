@@ -10,19 +10,15 @@ public class Constitution implements Document {
     private String preambule;
     private List<Chapter> chapters=new ArrayList<>();
     private ArrayList<Article> articles=new ArrayList<>();
-Constitution(String title){
+    Constitution(String title){
     this.title=title;
 }
-
     public String getTitle(){
         return this.title;
     }
-
     public String getAuthor(){
         return "";
     };
-
-
     public Chapter[] getChapters(int startIndex, int endIndex) throws ArrayIndexOutOfBoundsException, IllegalArgumentException{
         if (startIndex>endIndex) throw new IllegalArgumentException("błędny zakres rodziałów!");
         if (endIndex>chapters.size()) throw new ArrayIndexOutOfBoundsException("Document posiada "+chapters.size()+" rozdziałów");
@@ -33,7 +29,6 @@ Constitution(String title){
         }
         return res;
     }
-
     public Article[] getArticles(int startIndex, int endIndex) throws ArrayIndexOutOfBoundsException, IllegalArgumentException {
         if (startIndex>endIndex) throw new IllegalArgumentException("błędny zakres artykułów!");
         if (endIndex>articles.size()) throw new ArrayIndexOutOfBoundsException("Document posiada "+chapters.size()+" artykułów");
@@ -47,7 +42,7 @@ Constitution(String title){
         chapters.add(chapter);
     }
     public String toString(){
-        String res="";
+        String res=getTitle();
         for(Chapter chapter:chapters)
             res+=chapter.toString();
         return res;
@@ -55,7 +50,6 @@ Constitution(String title){
     public void addArticle(Article article){
         articles.add(article);
     }
-
     public void addPreambule(String preambule) {
         this.preambule=preambule;
     }
