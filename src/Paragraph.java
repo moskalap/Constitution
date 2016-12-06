@@ -22,10 +22,5 @@ public class Paragraph {
             return paragraphNo+". "+paragraph+"\n";
     }
 
-    public void extend(String line) {
-        this.paragraph+="\n"+line;
-    }
-    public boolean isEnded(){
-        return this.paragraph.substring(paragraph.length()-1, paragraph.length()).equals(".");
-    }
+
 }

@@ -34,7 +34,7 @@ public class Constitution implements Document {
         if (endIndex>articles.size()) throw new ArrayIndexOutOfBoundsException("Document posiada "+chapters.size()+" artykułów");
         Article[] res=new Article[articles.size()];
         for (int i =0; i<endIndex-startIndex; i++){
-            res[i]=articles.get(startIndex+i);
+            res[i]=articles.get(startIndex+i-1);
         }
         return res;
     }

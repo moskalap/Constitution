@@ -37,7 +37,7 @@ public class Chapter {
 
     }
     public String toString(){
-        String res=this.getChapterName();
+        String res=this.getChapterName()+"\n";
 
         for (Subchapter subchapter:subChapters){
             res+=subchapter.toString();

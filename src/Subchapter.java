@@ -17,9 +17,6 @@ public class Subchapter {
     Subchapter(String title){
         this.subchapterTitle=title;
     }
-    Subchapter(){
-        this.subchapterTitle="";
-    }
 
 
     public String toString(){
@@ -33,11 +30,5 @@ public class Subchapter {
         return "Podrozdział"+this.subchapterTitle;
     }
 
-    public boolean isEmpty() {
-        return articles.isEmpty();
-    }
 
-    public void expandName(String line) {
-        this.subchapterTitle+="\n"+line;
-    }
 }

@@ -21,10 +21,17 @@ public class ArgumentsParser {
                     break;
                 case ("-c"):
                 case ("-C"):
-                    i++;
-                    wantChapters=true;
-                    chapterStart=Integer.parseInt(args[i]);
-                    try{
+                    try {
+
+
+                        i++;
+                        wantChapters = true;
+                        chapterStart = Integer.parseInt(args[i]);
+                    }catch( NumberFormatException e){
+                        System.out.println("Błąd w składni ");
+                    }
+
+                        try{
                         chapterEnd=Integer.parseInt(args[i+1]);
                         i++;
                     } catch (ArrayIndexOutOfBoundsException es){

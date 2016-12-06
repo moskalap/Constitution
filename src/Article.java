@@ -27,7 +27,6 @@ public class Article {
     return res;
     }
 
-
     public int getArticleNo() {
         return articleNo;
     }
