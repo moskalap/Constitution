@@ -15,7 +15,7 @@ public class ConstitutionParser {
 
     ConstitutionParser(String path) throws FileNotFoundException {
         this.path = path;
-        System.out.println(path);
+       // System.out.println(path);
         fileReader = new FileReader(path);
     }
 

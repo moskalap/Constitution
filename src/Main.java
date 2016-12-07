@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        ArgumentsParser parser=new ArgumentsParser(args);
+try{        ArgumentsParser parser=new ArgumentsParser(args);
 
         Constitution constitution=new ConstitutionBuilder(new ConstitutionParser(parser.filePath).parse()).build();
         if(parser.wantArticle)
@@ -27,13 +27,13 @@ public class Main {
             for( Chapter chapter: chapters){
                 System.out.println( chapter.toString());
             }
-        }
-
-
-
-
-
-
-        //  System.out.println(l.get(0));
+        }}
+catch(ArrayIndexOutOfBoundsException e){
+    System.out.println("Podano za dużo rozdziałów");
+}
+catch(IllegalArgumentException e){
+    System.out.println(e.toString());
+}
+        
     }
 }

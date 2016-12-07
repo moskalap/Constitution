@@ -47,7 +47,9 @@ public class ArgumentsParser {
                     break;
                 case ("-a"):
                 case ("-A"):
-                    wantArticle=true;
+                    if(wantChapters) throw new IllegalArgumentException("Podano jednocześnie artyukuły i rozdziały");
+                        else
+                            wantArticle=true;
                     i++;
                     articleStart=Integer.parseInt(args[i]);
                     try{

@@ -33,7 +33,7 @@ public class ConstitutionBuilder {
                     actualChapter = new Chapter(getNofromLine(words.get(i)), words.get(i));
                     chapters.add(actualChapter);
                     c.addChapter(actualChapter);
-                    System.out.println("dodałem chapter: " + actualChapter.getChapterName());
+              //      System.out.println("dodałem chapter: " + actualChapter.getChapterName());
                     actualSubchapter = null;
                     actualArticle = null;
                     actualParagraph = null;
@@ -43,7 +43,7 @@ public class ConstitutionBuilder {
                     i++;
                     actualSubchapter = new Subchapter(getSubchapterTitle(i));
                     actualChapter.addSubchapter((actualSubchapter));
-                    System.out.println("dodałem subchater" + actualSubchapter.getSuchapterTitle());
+                //    System.out.println("dodałem subchater" + actualSubchapter.getSuchapterTitle());
                     actualArticle = null;
                     actualParagraph = null;
                     break;
@@ -52,21 +52,21 @@ public class ConstitutionBuilder {
                     actualArticle = new Article(getArticleNo(words.get(i)));
                     actualSubchapter.addArticle(actualArticle);
                     c.addArticle(actualArticle);
-                    System.out.println("dodałem artykuł " + actualArticle.getArticleNo() + "do " + actualSubchapter.getSuchapterTitle());
+                  //  System.out.println("dodałem artykuł " + actualArticle.getArticleNo() + "do " + actualSubchapter.getSuchapterTitle());
                     actualParagraph = null;
                     break;
                 case "<SINGLEPARAGRAPH>":
                     i++;
                     actualParagraph = new Paragraph(getParagraphTitle(i));
                     actualArticle.addParagraph(actualParagraph);
-                    System.out.println("dodałem pojedynczy paragraf do art" + actualArticle.getArticleNo());
+                    //System.out.println("dodałem pojedynczy paragraf do art" + actualArticle.getArticleNo());
                     break;
 
                 case "<NUMPARAGRAPH>":
                     i++;
                     actualParagraph = new Paragraph(getParagraphNo(i), getParagraphTitle(i));
                     actualArticle.addParagraph(actualParagraph);
-                    System.out.println("dodałem numerowany paragraf do art" + actualArticle.getArticleNo());
+                    //System.out.println("dodałem numerowany paragraf do art" + actualArticle.getArticleNo());
                     break;
                 default:
                     break;
