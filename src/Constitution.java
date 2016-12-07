@@ -38,6 +38,12 @@ public class Constitution implements Document {
         }
         return res;
     }
+    public Paragraph getSingleParagraph(int fromArticle, int paragraphNo){
+        Article[] article=getArticles(fromArticle, fromArticle);
+
+
+        return article[0].getParagraph(paragraphNo);
+    }
     public void addChapter(Chapter chapter){
         chapters.add(chapter);
     }

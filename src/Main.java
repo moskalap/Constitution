@@ -27,13 +27,28 @@ try{        ArgumentsParser parser=new ArgumentsParser(args);
             for( Chapter chapter: chapters){
                 System.out.println( chapter.toString());
             }
-        }}
+        }
+
+        if(parser.wantsParagraph){
+            Article[] articles= constitution.getArticles(parser.articleStart, parser.articleEnd);
+            System.out.println(articles[0].getParagraph(parser.paragraph).toString());
+
+        }
+
+
+
+
+}
 catch(ArrayIndexOutOfBoundsException e){
-    System.out.println("Podano za dużo rozdziałów");
+    System.out.println(e.toString());
 }
 catch(IllegalArgumentException e){
     System.out.println(e.toString());
 }
-        
+
+catch(FileNotFoundException e){
+    System.out.println( " Plik nie istnieje");
+}
+
     }
 }

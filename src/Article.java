@@ -34,4 +34,9 @@ public class Article {
     public void addParagraph(Paragraph paragraph) {
         paragraphs.add(paragraph);
     }
+
+    public Paragraph getParagraph(int paragraphNo) {
+        if (this.paragraphs.size()<paragraphNo) throw new IndexOutOfBoundsException("Paragraf "+ articleNo+"."+paragraphNo+" nie istnieje.");
+        return this.paragraphs.get(paragraphNo-1);
+    }
 }

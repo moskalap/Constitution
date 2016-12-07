@@ -2,6 +2,7 @@
  * Created by przemek on 01.12.16.
  */
 public class ArgumentsParser {
+    public int paragraph;
     public String filePath;
     public int chapterStart;
     public int chapterEnd;
@@ -9,6 +10,7 @@ public class ArgumentsParser {
     public int articleEnd;
     public boolean wantArticle=false;
     public boolean wantChapters=false;
+    public boolean wantsParagraph=false;
 
 
     ArgumentsParser(String[] args) throws IllegalArgumentException {
@@ -25,10 +27,11 @@ public class ArgumentsParser {
 
 
                         i++;
+                        if (wantArticle) throw new IllegalArgumentException("podano jednocześnie artykuły i rozdziały");
                         wantChapters = true;
                         chapterStart = Integer.parseInt(args[i]);
                     }catch( NumberFormatException e){
-                        System.out.println("Błąd w składni ");
+                        System.out.println("Błąd w składni, poprawna składnia to -p ścieżka -c [rozdział] {rozdizał}");
                     }
 
                         try{
@@ -64,6 +67,16 @@ public class ArgumentsParser {
 
                     }
                     break;
+                case ("-PAR"):
+                case("-par"):
+                    if (wantArticle || wantChapters) throw new IllegalArgumentException("Podano za dużo argumentów");
+                    i++;
+                    wantsParagraph=true;
+                    articleStart=Integer.parseInt(args[i]);
+                    articleEnd=articleStart;
+                    paragraph=Integer.parseInt(args[i+1]);
+
+                    break;
                 default:
                     break;
 
@@ -75,4 +88,6 @@ public class ArgumentsParser {
         }
 
     }
+
+
 }
