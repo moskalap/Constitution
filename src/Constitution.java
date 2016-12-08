@@ -31,7 +31,7 @@ public class Constitution implements Document {
     }
     public Article[] getArticles(int startIndex, int endIndex) throws ArrayIndexOutOfBoundsException, IllegalArgumentException {
         if (startIndex>endIndex) throw new IllegalArgumentException("błędny zakres artykułów!");
-        if (endIndex>articles.size()) throw new ArrayIndexOutOfBoundsException("Document posiada "+chapters.size()+" artykułów");
+        if (endIndex>articles.size()) throw new ArrayIndexOutOfBoundsException("Document posiada "+articles.size()+" artykułów");
         Article[] res=new Article[endIndex-startIndex+1];
         for (int i =0; i<endIndex-startIndex+1; i++){
             res[i]=articles.get(startIndex+i-1);
